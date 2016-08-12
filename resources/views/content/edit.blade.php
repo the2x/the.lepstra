@@ -7,7 +7,7 @@
             <input type="hidden" name="_method" value="put"/>
 
             <div class="form_ui">
-                Обложка:<br/>
+                Обложка (необязательно):<br/>
                 <input type="file" name="cover">
             </div>
 
@@ -87,7 +87,7 @@
             </div>
 
             <div class="form_ui">
-                Галерея фото:<br>
+                Галерея фото (необязательно):<br>
                 <input type="file" name="photo[]" multiple placeholder="dsds">
             </div>
 
@@ -110,54 +110,103 @@
                     @if($color)
                         @foreach($color as $colors)
                             @if($colors->color == 'Черный')
-                                <label>
-                                    <input type='checkbox' name="color[]" value="{{ $colors->color }}">
-                                    <span class="checkbox_black"></span>
-                                </label>
+                                @if(in_array('Черный', explode(',', $product->color)))
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}" checked>
+                                        <span class="checkbox_black"></span>
+                                    </label>
+                                @else
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}">
+                                        <span class="checkbox_black"></span>
+                                    </label>
+                                @endif
                             @endif
 
                             @if($colors->color == 'Серый')
-                                <label>
-                                    <input type='checkbox' name="color[]" value="{{ $colors->color }}">
-                                    <span class="checkbox_grey"></span>
-                                </label>
+                                @if(in_array('Серый', explode(',', $product->color)))
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}" checked>
+                                        <span class="checkbox_grey"></span>
+                                    </label>
+                                @else
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}">
+                                        <span class="checkbox_grey"></span>
+                                    </label>
+                                @endif
                             @endif
 
                             @if($colors->color == 'Красный')
-                                <label>
-                                    <input type='checkbox' name="color[]" value="{{ $colors->color }}">
-                                    <span class="checkbox_red"></span>
-                                </label>
+                                @if(in_array('Красный', explode(',', $product->color)))
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}" checked>
+                                        <span class="checkbox_red"></span>
+                                    </label>
+                                @else
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}">
+                                        <span class="checkbox_red"></span>
+                                    </label>
+                                @endif
                             @endif
 
                             @if($colors->color == 'Зеленый')
-                                <label>
-                                    <input type='checkbox' name="color[]" value="{{ $colors->color }}">
-                                    <span class="checkbox_green"></span>
-                                </label>
+                                @if(in_array('Зеленый', explode(',', $product->color)))
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}" checked>
+                                        <span class="checkbox_green"></span>
+                                    </label>
+                                @else
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}">
+                                        <span class="checkbox_green"></span>
+                                    </label>
+                                @endif
                             @endif
 
 
                             @if($colors->color == 'Синий')
-                                <label>
-                                    <input type='checkbox' name="color[]" value="{{ $colors->color }}">
-                                    <span class="checkbox_blue"></span>
-                                </label>
+                                @if(in_array('Синий', explode(',', $product->color)))
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}" checked>
+                                        <span class="checkbox_blue"></span>
+                                    </label>
+                                @else
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}">
+                                        <span class="checkbox_blue"></span>
+                                    </label>
+                                @endif
                             @endif
 
 
                             @if($colors->color == 'Желтый')
-                                <label>
-                                    <input type='checkbox' name="color[]" value="{{ $colors->color }}">
-                                    <span class="checkbox_yellow"></span>
-                                </label>
+                                @if(in_array('Желтый', explode(',', $product->color)))
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}" checked>
+                                        <span class="checkbox_yellow"></span>
+                                    </label>
+                                @else
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}">
+                                        <span class="checkbox_yellow"></span>
+                                    </label>
+                                @endif
                             @endif
 
                             @if($colors->color == 'Белый')
-                                <label>
-                                    <input type='checkbox' name="color[]" value="{{ $colors->color }}">
-                                    <span class="checkbox_white"></span>
-                                </label>
+                                @if(in_array('Белый', explode(',', $product->color)))
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}" checked>
+                                        <span class="checkbox_white"></span>
+                                    </label>
+                                @else
+                                    <label>
+                                        <input type='checkbox' name="color[]" value="{{ $colors->color }}">
+                                        <span class="checkbox_white"></span>
+                                    </label>
+                                @endif
                             @endif
                         @endforeach
                     @endif
@@ -165,6 +214,31 @@
             </div>
 
             <div class="form_ui">
+                Уникальный статус:<br>
+                <ul class="cols status_icon">
+                    @if($product->new_status)
+                        <li><input type="checkbox" name="new_status" value="yes" checked> New</li>
+                    @else
+                        <li><input type="checkbox" name="new_status" value="yes"> New</li>
+                    @endif
+
+
+                    @if($product->sale_status)
+                        <li><input type="checkbox" name="sale_status" value="yes" checked> Sale</li>
+                    @else
+                        <li><input type="checkbox" name="sale_status" value="yes"> Sale</li>
+                    @endif
+
+                    @if($product->wow_status)
+                        <li><input type="checkbox" name="wow_status" value="yes" checked> Wow</li>
+                    @else
+                        <li><input type="checkbox" name="wow_status" value="yes"> Wow</li>
+                    @endif
+                </ul>
+            </div>
+
+            <div class="form_ui">
+                Цена:<br>
                 <input type="text" name="price" placeholder="Цена товара" value="{{ $product->price }}">
             </div>
 

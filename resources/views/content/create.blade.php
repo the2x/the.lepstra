@@ -138,6 +138,15 @@
             </div>
 
             <div class="form_ui">
+                Уникальный статус:<br>
+                <ul class="cols status_icon">
+                    <li><input type="checkbox" name="new_status" value="yes"> New</li>
+                    <li><input type="checkbox" name="sale_status" value="yes"> Sale</li>
+                    <li><input type="checkbox" name="wow_status" value="yes"> Wow</li>
+                </ul>
+            </div>
+
+            <div class="form_ui">
                 Стоймость:<br>
                 <input type="text" name="price" value="{{ old('price') }}">
             </div>

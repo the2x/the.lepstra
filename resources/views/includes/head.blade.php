@@ -1,10 +1,10 @@
 <title>@yield('title')</title>
 <meta charset="UTF-8">
 <link href="{{ '' }}" type="image/x-icon" rel="shortcut icon"/>
-<meta name="keywords" content=""/>
-<meta name="description" content="Описание"/>
-<meta name="author" content=""/>
-<meta name="copyright" content=""/>
+<meta name="keywords" content="lepstra, интернет-магазин"/>
+<meta name="description" content="Lepstra — очередной интернет-магазин с удобным функционалом"/>
+<meta name="author" content="the2x"/>
+<meta name="copyright" content="the2x"/>
 <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <link rel="stylesheet" href="{{ '/_css/css.css' }}">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

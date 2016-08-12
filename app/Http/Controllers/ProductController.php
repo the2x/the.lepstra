@@ -358,6 +358,18 @@ class ProductController extends Controller
     }
 
 
+    public function status($status)
+    {
+        if($status){
+            $status_icon = $status;
+        }else{
+            $status_icon = '';
+        }
+
+        return $status_icon;
+    }
+
+
     public function update(Request $request, $id, UpdateProductRequest $validate)
     {
         Validator::make($request->all(), $validate->rules(), $validate->messages());
@@ -375,6 +387,9 @@ class ProductController extends Controller
                 'size' => implode(',', $this->update_size_product($request)),
                 'description' => $request->description,
                 'price' => $request->price,
+                'new_status' => $this->status($request->new_status),
+                'sale_status' => $this->status($request->sale_status),
+                'wow_status' => $this->status($request->wow_status),
                 'color' => implode(',', $this->update_color_product($request)),
             ]);
 

@@ -17,6 +17,22 @@
                             <td>
                                 <ul class="cols">
                                     <li>
+                                        <div class="status_icon_block">
+                                            <ul class="cols">
+                                                @if($product->new_status)
+                                                    <li><img src="{{ '/_img/new_icon.png' }}" alt="New" title="New">
+                                                    </li>
+                                                @endif
+                                                @if($product->sale_status)
+                                                    <li><img src="{{ '/_img/sale_icon.png' }}" alt="Sale" title="Sale">
+                                                    </li>
+                                                @endif
+                                                @if($product->wow_status)
+                                                    <li><img src="{{ '/_img/wow_icon.png' }}" alt="Wow" title="Wow">
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                        </div>
                                         <a href="/product/{{$product->id}}"><img
                                                     src="/{{ $product->cover }}" alt=""></a>
                                     </li>
@@ -38,8 +54,9 @@
                             </td>
 
                             @if($i % 3 == 0)
-                                </tr><tr>
-                            @endif
+                    </tr>
+                    <tr>
+                        @endif
 
                         @endforeach
                     </tr>

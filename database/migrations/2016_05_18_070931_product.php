@@ -21,6 +21,9 @@ class Product extends Migration
             $table->text('color');
             $table->text('brand');
             $table->decimal('price');
+            $table->string('new_status');
+            $table->string('sale_status');
+            $table->string('wow_status');
             $table->timestamps();
             $table->engine = 'InnoDB';
         });
