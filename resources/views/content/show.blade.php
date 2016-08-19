@@ -29,14 +29,14 @@
             <li class="blank"></li>
             <li>
                 <h3>{{ $product->title }}</h3>
-                <span>Коллекция: {{ $product->year }}</span><br>
-                <span>Бренд: <a
+                <span><b>Коллекция:</b> {{ $product->year }}</span><br>
+                <span><b>Бренд:</b> <a
                             href="/company/sort/{{ $company_link_item->company_link }}">{{ $company_link_item->brand }}</a></span><br>
-                <span>Страна: <a
+                <span><b>Страна:</b> <a
                             href="/country/sort/{{ $country_link_item->country_link }}">{{ $country_link_item->country }}</a></span><br>
-                <span>Категория: <a
+                <span><b>Категория:</b> <a
                             href="/category/sort/{{ $category_link_item->category_link }}">{{ $category_link_item->categories }}</a></span><br>
-                <span>Цвета в наличии:</span>
+                <span><b>Цвета в наличии:</b></span>
                 <form action="/product/{{ $product->id }}/order" method="post" name="name"
                       enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -94,7 +94,7 @@
                             @endif
                         @endforeach
                     </div>
-                    <span>Размеры в наличии:</span><br>
+                    <span><b>Размеры в наличии:</b></span><br>
                     <div id="user_size">
                         @foreach(explode(',', $product->size) as $size)
                             <input id="{{ $size }}" type="radio" name="size" value="{{ $size }}" checked>
@@ -103,7 +103,7 @@
                     </div>
                     <ul class="cols user_price">
                         <li>
-                            <b class="price">{{ $product->price }} BYN</b>
+                            <b class="price">{{ $product->price }} BYN </b>
                         </li>
                         <li class="blank"></li>
                         <li>
@@ -115,7 +115,7 @@
                         </li>
                     </ul>
                     <div class="old_price_belarus">
-                        <b class="price_old">{{ $product->price }} = {{ $product->price * 100000 }} BYR</b>
+                        <b class="price_old">{{ $product->price }} = {{ $product->price * 10000 }} BYR</b>
                     </div>
 
                     <i class="product_info">{!!  Markdown::convertToHtml($product->description) !!}</i>

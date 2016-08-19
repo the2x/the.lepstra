@@ -11,6 +11,7 @@ class MenuProductSeeder extends Seeder
 
         DB::table('menu_product')
             ->insert([
+                ['menu_product_title' => 'Создать лого бренда', 'menu_product_link' => '/brand/create'],
                 ['menu_product_title' => 'Создать продукт', 'menu_product_link' => '/product/create'],
                 ['menu_product_title' => 'Создать компанию', 'menu_product_link' => '/company/create'],
                 ['menu_product_title' => 'Создать категорию', 'menu_product_link' => '/category/create'],

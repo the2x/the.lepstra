@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BrandLogoModel;
 use App\CompanyModel;
 use App\CountryModel;
 use Illuminate\Http\Request;
@@ -130,6 +131,8 @@ class FilterController extends Controller
             ->orderBy('id', 'DESC')
             ->get();
 
+        $brand_logo = BrandLogoModel::all();
+
         return view('filter.filter', [
             'search_product' => $search_product,
             'country_link' => $this->country_link($search_product),
@@ -145,6 +148,8 @@ class FilterController extends Controller
             'company_sidebar' => $this->company_sidebar(),
             'size_sidebar' => $this->size_sidebar(),
             'color_sidebar' => $this->color_sidebar(),
+
+            'brand_logo' => $brand_logo,
         ]);
 
     }

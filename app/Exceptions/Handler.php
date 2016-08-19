@@ -33,8 +33,6 @@ class Handler extends ExceptionHandler
 //        if ($e instanceof \ErrorException)
 //            return response(view('errors.404'), 404);
 
-
-
         return parent::render($request, $e);
 
     }

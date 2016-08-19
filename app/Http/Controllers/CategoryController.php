@@ -13,7 +13,7 @@ use DB;
 use App\ColorModel;
 use App\CountryModel;
 use App\CompanyModel;
-
+use App\BrandLogoModel;
 
 class CategoryController extends Controller
 {
@@ -35,7 +35,8 @@ class CategoryController extends Controller
 
     public function list_category()
     {
-        return view('category.list', ['menu_category' => $this->category_menu(), 'menu_product' => $this->product_menu()]);
+        $brand_logo = BrandLogoModel::all();
+        return view('category.list', ['brand_logo' => $brand_logo, 'menu_category' => $this->category_menu(), 'menu_product' => $this->product_menu()]);
     }
 
 
@@ -156,6 +157,7 @@ class CategoryController extends Controller
             ->orderBy('id', 'DESC')
             ->get();
 
+        $brand_logo = BrandLogoModel::all();
 
         return view('category.sort',
             [
@@ -172,6 +174,8 @@ class CategoryController extends Controller
                 'company_sidebar' => $this->company_sidebar(),
                 'size_sidebar' => $this->size_sidebar(),
                 'color_sidebar' => $this->color_sidebar(),
+
+                'brand_logo' => $brand_logo,
             ]);
     }
 

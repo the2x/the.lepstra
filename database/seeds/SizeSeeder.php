@@ -11,14 +11,12 @@ class SizeSeeder extends Seeder
 
         DB::table('size')
             ->insert([
-                ['size' => 'XXS'],
                 ['size' => 'XS'],
                 ['size' => 'S'],
                 ['size' => 'M'],
                 ['size' => 'L'],
                 ['size' => 'XL'],
                 ['size' => 'XXL'],
-                ['size' => 'XXXL'],
             ]);
     }
 }

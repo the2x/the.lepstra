@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/the.lepstra.iml" filepath="$PROJECT_DIR$/.idea/the.lepstra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lepstra.iml" filepath="$PROJECT_DIR$/.idea/lepstra.iml" />
     </modules>
   </component>
 </project>
